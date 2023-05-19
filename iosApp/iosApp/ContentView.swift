@@ -4,7 +4,8 @@ import shared
 
 struct ComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        Main_iosKt.MainViewController()
+        let getSampleTextUseCase: GetSampleTextUseCase = koinApplication.get(objCClass: GetSampleTextUseCase.self)
+        return Main_iosKt.MainViewController(getSampleTextUseCase: getSampleTextUseCase)
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
