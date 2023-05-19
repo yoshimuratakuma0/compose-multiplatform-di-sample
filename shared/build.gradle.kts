@@ -35,6 +35,11 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+
+                with(Dependencies.Koin) {
+                    api(core)
+                    api(test)
+                }
             }
         }
         val androidMain by getting {
@@ -42,6 +47,9 @@ kotlin {
                 api("androidx.activity:activity-compose:1.6.1")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.9.0")
+
+                api(Dependencies.Koin.android)
+                api(Dependencies.Koin.compose)
             }
         }
         val iosX64Main by getting
